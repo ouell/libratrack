@@ -30,7 +30,7 @@ Projeto de estudo de um sistema de gerenciamento de bibliotecas moderno e eficie
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/LibraTrack.git
+   git clone https://github.com/ouell/libratrack.git
    ```
 
 2. Navegue até a pasta do projeto e restaure os pacotes:
