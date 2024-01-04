@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LibraTrack.Domain\LibraTrack.Domain.csproj" />
       <ProjectReference Include="..\src\LibraTrack.Application\LibraTrack.Application.csproj" />
     </ItemGroup>
 
