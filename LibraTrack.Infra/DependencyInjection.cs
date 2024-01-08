@@ -1,8 +1,4 @@
-﻿using LibraTrack.Infra.Repositories;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace LibraTrack.Infra;
+﻿namespace LibraTrack.Infra;
 
 public static class DependencyInjection
 {
