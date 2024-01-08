@@ -3,12 +3,10 @@
 public static class DependencyInjection
 {
 
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-                                                       IConfiguration configuration)
+    public static void AddInfrastructure(this IServiceCollection services,
+                                         IConfiguration configuration)
     {
         AddPersistence(services, configuration);
-
-        return services;
     }
 
     private static void AddPersistence(IServiceCollection services,
