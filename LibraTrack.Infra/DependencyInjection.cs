@@ -17,9 +17,9 @@ public static class DependencyInjection
 
         services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-        services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<ILoanRepository, LoanRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
+        services.AddScoped<ILoanRepository, LoanRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
     }
 }
