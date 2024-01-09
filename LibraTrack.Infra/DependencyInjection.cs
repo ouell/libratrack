@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-
+﻿
 namespace LibraTrack.Infra;
 
 public static class DependencyInjection
