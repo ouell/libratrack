@@ -1,11 +1,15 @@
-﻿namespace LibraTrack.Infra.Data;
+﻿namespace LibraTrack.Infra;
 
-public sealed class ApplicationDbContext(DbContextOptions options) : DbContext(options), IUnitOfWork
+public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
     private static readonly JsonSerializerSettings _jsonSerializerSettings = new()
     {
         TypeNameHandling = TypeNameHandling.All
     };
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

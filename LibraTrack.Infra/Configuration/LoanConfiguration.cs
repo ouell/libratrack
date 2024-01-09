@@ -7,6 +7,9 @@ public class LoanConfiguration : IEntityTypeConfiguration<Loan>
         builder.ToTable("Loans");
 
         builder.HasKey(loan => loan.Id);
+
+        builder.Property(loan => loan.Id)
+            .HasConversion(loanId => loanId.Value, value => new LoanId(value));
         
         builder.Property(loan => loan.DateOfLoan)
                .HasConversion(dateOfLoan => dateOfLoan.Value, value => new(value));
@@ -15,7 +18,7 @@ public class LoanConfiguration : IEntityTypeConfiguration<Loan>
                .HasConversion(expectedReturnDate => expectedReturnDate.Value, value => new(value));
         
         builder.Property(loan => loan.ReturnDate)
-               .HasConversion(returnDate => returnDate.Value, value => new(value));
+               .HasConversion(returnDate => returnDate!.Value, value => new(value));
         
         builder.Property(loan => loan.Status)
                .HasConversion(new EnumToStringConverter<Status>());

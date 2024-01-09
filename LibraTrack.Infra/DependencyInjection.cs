@@ -1,4 +1,6 @@
-﻿namespace LibraTrack.Infra;
+﻿using System.Globalization;
+
+namespace LibraTrack.Infra;
 
 public static class DependencyInjection
 {
@@ -15,7 +17,10 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("Database") ??
                                throw new ArgumentException(null, nameof(configuration));
 
-        services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
 
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<ILoanRepository, LoanRepository>();
