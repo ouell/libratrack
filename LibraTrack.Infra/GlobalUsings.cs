@@ -5,7 +5,6 @@ global using LibraTrack.Domain.Abstractions;
 global using LibraTrack.Domain.Book;
 global using LibraTrack.Domain.Loan;
 global using LibraTrack.Domain.Users;
-global using LibraTrack.Infra.Abstractions;
 global using LibraTrack.Infra.Repositories;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;

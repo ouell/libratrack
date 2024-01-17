@@ -1,4 +1,4 @@
-namespace LibraTrack.Infra.Abstractions;
+namespace LibraTrack.Domain.Abstractions;
 
 public interface IUnitOfWork
 {

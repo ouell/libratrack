@@ -1,4 +1,6 @@
-﻿namespace LibraTrack.Domain.Book;
+﻿using LibraTrack.Domain.Book.Events;
+
+namespace LibraTrack.Domain.Book;
 
 public sealed class Book : Entity<BookId>
 {
@@ -37,4 +39,19 @@ public sealed class Book : Entity<BookId>
     public Description Description { get; private set; }
 
     public YearOfPublication YearOfPublication { get; private set; }
+
+    public static Book Create(Isbn isbn, 
+                              Title title, 
+                              Author author, 
+                              Amount amount, 
+                              Category category, 
+                              Description description, 
+                              YearOfPublication yearOfPublication)
+    {
+        var book = new Book(BookId.New(), isbn, title, author, amount, category, description, yearOfPublication);
+        
+        book.RaiseDomainEvent(new BookCreateDomainEvent(book.Id));
+
+        return book;
+    }
 }
