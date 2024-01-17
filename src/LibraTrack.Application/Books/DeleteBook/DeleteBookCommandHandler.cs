@@ -13,7 +13,8 @@ internal sealed class DeleteBookCommandHandler(IBookRepository bookRepository,
             return Result.Failure(BookErrors.NotFound);
         }
         
-        
+        bookRepository.Remove(book);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
         
         return Result.Success();
     }
