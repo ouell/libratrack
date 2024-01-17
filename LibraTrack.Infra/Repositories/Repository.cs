@@ -20,8 +20,18 @@ internal abstract class Repository<TEntity, TEntityId>
                     .FirstOrDefaultAsync(user => user.Id == id, cancellationToken);
     }
 
-    public void Add(TEntity entity)
+    public async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
     {
-        DbContext.Add(entity);
+        await DbContext.AddAsync(entity, cancellationToken);
+    }
+
+    public void Update(TEntity entity)
+    {
+        DbContext.Update(entity);
+    }
+
+    public void Remove(TEntity entity)
+    {
+        DbContext.Remove(entity);
     }
 }

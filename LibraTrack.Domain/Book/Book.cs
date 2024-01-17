@@ -40,6 +40,13 @@ public sealed class Book : Entity<BookId>
 
     public YearOfPublication YearOfPublication { get; private set; }
 
+    public void Edit(Amount amount,
+                     Description description)
+    {
+        Amount = amount;
+        Description = description;
+    }
+    
     public static Book Create(Isbn isbn, 
                               Title title, 
                               Author author, 

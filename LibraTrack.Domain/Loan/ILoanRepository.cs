@@ -2,6 +2,6 @@
 
 public interface ILoanRepository
 {
-    void Add(Loan loan);
+    Task AddAsync(Loan loan, CancellationToken cancellationToken);
     Task<Loan?> GetByIdAsync(LoanId id, CancellationToken cancellationToken = default);
 }

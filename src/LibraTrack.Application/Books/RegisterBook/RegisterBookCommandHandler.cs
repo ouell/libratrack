@@ -13,7 +13,7 @@ internal sealed class RegisterBookCommandHandler(IUnitOfWork unitOfWork, IBookRe
                                            new(request.Description),
                                            new(request.YearOfPublication));
         
-        bookRepository.Add(book);
+        await bookRepository.AddAsync(book, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return book.Id.Value;
